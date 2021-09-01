@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+<body>
+
+
+    <header class="nav-bar">
+        <div class="hamburger-menu">
+          <a id="hamburger" class="hamburger-button" href="#" aria-label="navbar">☰</a>
+        </div>
+        <div class="header-logo">
+          <img src="./src/public/image/bpbd-logo.png" alt="Logo BPBD J atim">
+        </div>
+        <div class="header-name">
+          <h1>Dashboard Pemantauan Bencana</h1>
+        </div>
+      </header>
+
+      <!-- leftbar -->
+      <nav id="drawer-leftbar" class="drawer-leftbar">
+        <ul class="nav-list">
+          <li class="nav-header">Jenis Bencana</li>
+          <li class="nav-item">
+            <input type="checkbox" id="tornadoLayer" checked="checked">
+            <label class="checkbox-item" for="tornadoLayer">Puting Beliung</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="floodLayer" checked="checked">
+            <label class="checkbox-item" for="floodLayer">Banjir</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="landslideLayer" checked="checked">
+            <label class="checkbox-item" for="landslideLayer">Tanah Longsor</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="earthquakeLayer"  checked="checked">
+            <label class="checkbox-item" for="earthquakeLayer">Gempa Bumi</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="tsunamiLayer" checked="checked">
+            <label class="checkbox-item" for="tsunamiLayer">Tsunami</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="highsurfLayer" checked="checked">
+            <label class="checkbox-item" for="highsurfLayer">Gelombang Tinggi</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="droughtLayer" checked="checked">
+            <label class="checkbox-item" for="droughtLayer">Kekeringan</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="wildfireLayer" checked="checked">
+            <label class="checkbox-item" for="wildfireLayer">Kebakaran Hutan</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="incidentLayer" checked="checked">
+            <label class="checkbox-item" for="incidentLayer">Kejadian Lain</label>
+          </li>
+          <li class="nav-item">
+            <input type="checkbox" id="volcanoLayer" checked="checked">
+            <label class="checkbox-item" for="volcanoLayer">Letusan Gunung Api</label>
+          </li>
+          <!-- <li class="nav-item">
+            <input type="checkbox" id="checkbox-liquefaction" checked="checked">
+            <label class="checkbox-item" for="checkbox-liquefaction">Likuifasi</label>
+          </li> -->
+          <li class="nav-item">
+            <input type="checkbox" id="highwindLayer" checked="checked">
+            <label class="checkbox-item" for="highwindLayer">Angin Kencang</label>
+          </li>
+          <!-- <li class="nav-item">
+            <input type="checkbox" id="checkbox-technologyfailure" checked="checked">
+            <label class="checkbox-item" for="checkbox-technologyfailure">Kegagalan Teknologi</label>
+          </li> -->
+        </ul>
+      </nav>
+
+      <main>
+        <div id="map"></div>
+      </main>
+
+      <div id="disaster-detail" class="disaster-detail">
+        <div class="close-container">
+          <button id="close-disaster-detail" aria-label='Close' type='button' class="close-disaster-detail">X</button>
+        </div>
+        <div id="disaster" class="disaster">
+
+        </div>
+      </div>
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
