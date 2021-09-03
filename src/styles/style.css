@@ -1,0 +1,417 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  /* color: #424242; */
+}
+
+a {
+  text-decoration: none;
+  display: block; /* atau inline-block */
+  line-height: 44px;
+  color: #000;
+}
+
+/* navbar */
+
+.nav-bar {
+  width: 100%;
+  min-height: 10px;
+  background-color: #222222;
+  border-bottom:2px solid black;
+  border: solid rgba(#000, .2);
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  overflow: hidden;
+}
+
+.hamburger-menu {
+  float: left;
+  text-decoration: none;
+  font-size: 30px;
+  display: block;
+  /* padding: 10px; */
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.hamburger-button {
+  text-decoration: none;
+  display: inline-block;
+  color: #8c8c8c;
+}
+
+.header-logo {
+  float: left;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.header-logo img{
+  display: block;
+  width: 40px;
+}
+
+.header-name {
+  float: left;
+  margin-top: 18px;
+  margin-left: 5px;
+  font-size: 13px;
+  color: #8c8c8c;
+}
+
+/* sidebar navigation */
+.sidebar-nav {
+  z-index: 999;
+  background-color: #222222;
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  padding-top: 65px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  -webkit-transform: translate(-80px, 0);
+  transform: translate(-80px, 0);
+
+  transition: transform 0.3s ease;
+}
+
+.sidebar-nav-open {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.sidebar-nav-item {
+  padding: 15px;
+  text-align: center;
+  line-height: 25px;
+  width: 100%;
+  filter: invert(60%) sepia(7%) saturate(11%) hue-rotate(340deg) brightness(92%) contrast(84%);
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebar-nav-item-active {
+  background-color: white;
+  filter: none;
+  color: black;
+}
+
+.sidebar-nav-item:hover {
+  background-color: white;
+  filter: none;
+  color: black;
+}
+
+.sidebar-nav-item img {
+  display: block;
+  width: 40px;
+}
+
+
+.sidebar-nav-item p {
+  margin-top: 10px;
+  margin-left: -10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* left-bar */
+ .drawer-leftbar {
+  padding: 20px;
+  z-index: 998;
+  background-color: white;
+  width: 350px;
+  height: 100%;
+  position: absolute;
+  padding-top: 80px;
+
+  -webkit-transform: translate(-350px, 0);
+  transform: translate(-350px, 0);
+
+  transition: transform 0.3s ease;
+}
+
+.leftbar-open {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translate(80px, 0);
+  transform: translate(80px, 0);
+}
+
+
+.nav-header {
+  text-align: center;
+  display: list-item;
+  width: 100%;
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: black;
+  list-style: none;
+  margin-bottom: 20px;
+  border-bottom: 4px solid black;
+}
+
+.nav-item {
+  line-height: 25px;
+  display: list-item;
+  width: 100%;
+  text-align: left;
+  font-size: 21px;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.nav-item img {
+  display: block;
+  width: 30px;
+  float: left;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+/* disaster detail */
+.disaster-detail {
+  z-index: 999;
+  background-color: white;
+  width: 350px;
+  position: absolute;
+  right:0px;
+  border: solid rgba(#000, .2);
+  border-color: whitesmoke;
+  display: none;
+  opacity: 0;
+  top: 0;
+  height: 100%;
+  padding: 15px;
+  overflow-y: scroll;
+
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.disaster-open {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.close-container {
+  padding-top: 60px;
+  overflow: auto;
+}
+
+.close-disaster-detail {
+  width: 40px;
+  padding: 7px;
+  font-size: 18px;
+  float: right;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  border: 1px solid transparent;
+  color: white;
+  border-radius: 8px;
+}
+
+.close-disaster-detail:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.disaster-detail-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.disaster-detail-logo img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+}
+
+.disaster-header {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 3px solid black;
+  font-size: 28px;
+}
+
+.disaster-time {
+  font-size: 18px;
+  text-align: center;
+  padding: 18px;
+  border-bottom: 3px  solid black;
+  line-height: 1.9em;
+}
+
+.disaster-location {
+  padding: 15px;
+  border-bottom: 3px  solid black;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.disaster-location h3{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.disaster-otherdetail {
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 5px;
+  line-height: 2em;
+  border-bottom: 3px  solid black;
+}
+
+.disaster-otherdetail h3{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.disaster-detail-status-container {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.disaster-detail-status {
+  margin-top: 5px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* leaflet popup custom */
+.popup-marker-container {
+  width: 200px;
+}
+
+.popup-disaster-name {
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid black;
+}
+
+.popup-disaster-detail {
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.popup-disaster-detail-button {
+  border: solid black;
+  text-align:  center;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #5cb85c;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0.7em;
+  text-decoration: none;
+}
+
+.popup-disaster-detail-button:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+/* toggle button */
+/* The switch - the box around the slider */
+.switch {
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Pemantauan Bencana</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+<body>
+
+  <!-- Top navigation bar -->
+  <header class="nav-bar">
+    <div class="hamburger-menu">
+      <a id="hamburger" class="hamburger-button" href="#" aria-label="navbar">☰</a>
+    </div>
+    <div class="header-logo">
+      <img src="./src/public/image/bpbd-logo.png" alt="Logo BPBD J atim">
+    </div>
+    <div class="header-name">
+      <h1>Dashboard Pemantauan Bencana</h1>
+    </div>
+  </header>
+
+  <!-- hamburger-button navigation bar -->
+  <div id="sidebar-nav" class="sidebar-nav" >
+    <a href="#" class="sidebar-nav-item" id="layer-list">
+      <img src="./src/public/image/layers.svg" alt="Map Layer">
+      <p>Layer</p>
+    </a>
+    <a href="#" class="sidebar-nav-item" id="disaster-list">
+      <img src="./src/public/image/disaster_list.svg" alt="Disaster list">
+      <p>Daftar Bencana</p>
+    </a>
+  </div>
+
+  <!-- layer list bar -->
+  <div id="drawer-leftbar" class="drawer-leftbar">
+    <div id="drawer-leftbar-content">
+      <ul>
+        <li class="nav-header">Jenis Bencana</li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/TORNADO.svg" alt="tornadoLayer">
+          <label class="nav-item-layer" for="tornadoLayer">Puting Beliung</label>
+          <label class="switch">
+            <input type="checkbox"  id="tornadoLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/FLOOD.svg" alt="floodLayer">
+          <label class="checkbox-item" for="floodLayer">Banjir</label>
+          <label class="switch">
+            <input type="checkbox"  id="floodLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/LANDSLIDE.svg" alt="landslideLayer">
+          <label class="checkbox-item" for="landslideLayer">Tanah Longsor</label>
+          <label class="switch">
+            <input type="checkbox"  id="landslideLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/EARTHQUAKE.svg" alt="earthquakeLayer">
+          <label class="checkbox-item" for="earthquakeLayer">Gempa Bumi</label>
+          <label class="switch">
+            <input type="checkbox"  id="earthquakeLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/HIGHSURF.svg" alt="highsurfLayer">
+          <label class="checkbox-item" for="highsurfLayer">Gelombang Tinggi</label>
+          <label class="switch">
+            <input type="checkbox"  id="highsurfLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/DROUGHT.svg" alt="droughtLayer">
+          <label class="checkbox-item" for="droughtLayer">Kekeringan</label>
+          <label class="switch">
+            <input type="checkbox"  id="droughtLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/WILDFIRE.svg" alt="wildfireLayer">
+          <label class="checkbox-item" for="wildfireLayer">Kebakaran Hutan</label>
+          <label class="switch">
+            <input type="checkbox"  id="wildfireLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/INCIDENT.svg" alt="incidentLayer">
+          <label class="checkbox-item" for="incidentLayer">Kejadian Lain</label>
+          <label class="switch">
+            <input type="checkbox"  id="incidentLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/HIGHWIND.svg" alt="highwindLayer">
+          <label class="checkbox-item" for="highwindLayer">Angin Kencang</label>
+          <label class="switch">
+            <input type="checkbox"  id="highwindLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <img src="./src/public/image/disaster-icon/VOLCANO.svg" alt="volcanoLayer">
+          <label class="checkbox-item" for="volcanoLayer">Letusan Gunung Api</label>
+          <label class="switch">
+            <input type="checkbox"  id="volcanoLayer" checked>
+            <span class="slider round"></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Leaflet Map -->
+  <main>
+    <div id="map"></div>
+  </main>
+
+  <!-- Disaster detail bar -->
+  <div id="disaster-detail-container" class="disaster-detail">
+    <div class="close-container">
+      <button id="close-disaster-detail-container" aria-label='Close' type='button' class="close-disaster-detail">X</button>
+    </div>
+    <div id="disaster" class="disaster"></div>
+  </div>
+
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
